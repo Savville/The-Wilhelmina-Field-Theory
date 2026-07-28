@@ -16,3 +16,4 @@ LTSPICE_GUIDE.md
 # Python caches
 __pycache__/
 *.pyc
+.txt
