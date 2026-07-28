@@ -1,0 +1,18 @@
+# Exclude raw data and simulation files
+*.raw
+*.log
+*.net
+*.op.raw
+
+# Exclude all PDFs
+*.pdf
+
+# Exclude academic papers and private guidebooks to protect IP
+IEEE_Paper/
+*Guidebook*
+wilhelmina_psi_field_research.md
+endorser_contacts.csv
+LTSPICE_GUIDE.md
+# Python caches
+__pycache__/
+*.pyc

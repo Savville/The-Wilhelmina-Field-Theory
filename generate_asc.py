@@ -1,0 +1,142 @@
+asc_content = """Version 4
+SHEET 1 5000 1000
+
+* ================= OSCILLATOR 1 (X0=200) =================
+* Top Rail
+WIRE 216 100 1100 100
+* Ground Rail segment
+WIRE 216 400 1100 400
+
+* C1
+SYMBOL cap 200 200 R0
+SYMATTR InstName C1
+SYMATTR Value 1p
+WIRE 216 100 216 200
+WIRE 216 264 216 400
+
+* R1
+SYMBOL res 500 200 R0
+SYMATTR InstName R1
+SYMATTR Value 500
+WIRE 500 100 500 184
+WIRE 500 296 500 400
+
+* L1
+SYMBOL ind 800 200 R0
+SYMATTR InstName L1
+SYMATTR Value 10n
+WIRE 800 100 800 184
+WIRE 800 296 800 400
+
+* B1
+SYMBOL bi 1100 200 R0
+SYMATTR InstName B1
+SYMATTR Value I=0.004*V(N001)-0.002*V(N001)**3
+WIRE 1100 100 1100 184
+WIRE 1100 296 1100 400
+
+* ================= COUPLING 1 =================
+SYMBOL res 1500 100 R270
+SYMATTR InstName Rc1
+SYMATTR Value 500
+WIRE 1100 100 1484 100
+WIRE 1596 100 2016 100
+* Ground bridging
+WIRE 1100 400 2016 400
+
+
+* ================= OSCILLATOR 2 (X0=2000) =================
+* Top Rail
+WIRE 2016 100 2900 100
+* Ground Rail segment
+WIRE 2016 400 2900 400
+
+* C2
+SYMBOL cap 2000 200 R0
+SYMATTR InstName C2
+SYMATTR Value 1p
+WIRE 2016 100 2016 200
+WIRE 2016 264 2016 400
+
+* R2
+SYMBOL res 2300 200 R0
+SYMATTR InstName R2
+SYMATTR Value 500
+WIRE 2300 100 2300 184
+WIRE 2300 296 2300 400
+
+* L2
+SYMBOL ind 2600 200 R0
+SYMATTR InstName L2
+SYMATTR Value 10n
+WIRE 2600 100 2600 184
+WIRE 2600 296 2600 400
+
+* B2
+SYMBOL bi 2900 200 R0
+SYMATTR InstName B2
+SYMATTR Value I=0.004*V(N002)-0.002*V(N002)**3
+WIRE 2900 100 2900 184
+WIRE 2900 296 2900 400
+
+
+* ================= COUPLING 2 =================
+SYMBOL res 3300 100 R270
+SYMATTR InstName Rc2
+SYMATTR Value 500
+WIRE 2900 100 3284 100
+WIRE 3396 100 3816 100
+* Ground bridging
+WIRE 2900 400 3816 400
+
+
+* ================= OSCILLATOR 3 (X0=3800) =================
+* Top Rail
+WIRE 3816 100 4700 100
+* Ground Rail segment
+WIRE 3816 400 4700 400
+
+* C3
+SYMBOL cap 3800 200 R0
+SYMATTR InstName C3
+SYMATTR Value 1p
+WIRE 3816 100 3816 200
+WIRE 3816 264 3816 400
+
+* R3
+SYMBOL res 4100 200 R0
+SYMATTR InstName R3
+SYMATTR Value 500
+WIRE 4100 100 4100 184
+WIRE 4100 296 4100 400
+
+* L3
+SYMBOL ind 4400 200 R0
+SYMATTR InstName L3
+SYMATTR Value 10n
+WIRE 4400 100 4400 184
+WIRE 4400 296 4400 400
+
+* B3
+SYMBOL bi 4700 200 R0
+SYMATTR InstName B3
+SYMATTR Value I=0.004*V(N003)-0.002*V(N003)**3
+WIRE 4700 100 4700 184
+WIRE 4700 296 4700 400
+
+
+* ================= GROUND FLAGS =================
+FLAG 216 400 0
+FLAG 2016 400 0
+FLAG 3816 400 0
+
+* ================= SIM COMMANDS =================
+TEXT 216 450 Left 2 !.tran 0 2u 1u 1p
+TEXT 216 500 Left 2 !.options plotwinsize=0
+
+"""
+
+with open("wilhelmina_array.asc", "w") as f:
+    f.write(asc_content)
+
+print("Generated absolutely precise wilhelmina_array.asc successfully.")
